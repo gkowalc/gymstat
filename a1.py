@@ -23,4 +23,18 @@ def  getDataFromLastDate():
     # Exercise, Category, Muscles, Weight, Reps, Hours, Minutes, Seconds, Distance , Calories, Date, Note
 
 
+def  getDaysWithTraining():
+    results = c.execute('''SELECT distinct  DATE(date) FROM exercise2''').fetchall()  # [(1, 'pokerkid'), (2, 'crazyken')]
+    return(results)
+
+    # Exercise, Category, Muscles, Weight, Reps, Hours, Minutes, Seconds, Distance , Calories, Date, Note
+
+def  exerciseReportFromDate(date):
+    results = c.execute('''SELECT *   FROM exercise2 where (?)  =  DATE(date) ''', (date,)) # [(1, 'pokerkid'), (2, 'crazyken')]
+
+    print(results.fetchall())
+    # add a comma after (date) otherwise https://stackoverflow.com/questions/16856647/sqlite3-programmingerror-incorrect-number-of-bindings-supplied-the-current-sta
+    return(results)
+
+exerciseReport('2020-11-23')
 
