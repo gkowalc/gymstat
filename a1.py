@@ -51,7 +51,7 @@ def  performanceExerice(exercise):
     x_val = [x[8] for x in data]
     y_val = [x[4] for x in data]
     y_val2 = [x[6] for x in data]
-    y_val3 = [x[7] for x in data]
+
     fig, ax1 = plt.subplots()
 
     fig, ax1 = plt.subplots()
@@ -71,10 +71,6 @@ def  performanceExerice(exercise):
 
     ax3 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
-    color = 'tab:green'
-    ax3.set_ylabel('sin', color=color)  # we already handled the x-label with ax1
-    ax3.plot(x_val, y_val3, color=color)
-    ax3.tick_params(axis='y', labelcolor=color)
 
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
     plt.show()
